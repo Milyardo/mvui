@@ -1,0 +1,15 @@
+[submodule "Archy"]
+	path = Archy
+	url = git://git.curseforge.net/wow/archy/mainline.git
+[submodule "LibAboutPanel"]
+	path = LibAboutPanel
+	url = git://git.curseforge.net/wow/libaboutpanel/mainline.git
+[submodule "LibDataBroker-1.1"]
+	path = LibDataBroker-1.1
+	url = git://git.wowace.com/wow/libdatabroker-1-1/mainline.git
+[submodule "Panda"]
+	path = Panda
+	url = https://github.com/tekkub/Panda.git
+[submodule "Clique"]
+	path = Clique
+	url = git://git.curseforge.net/wow/clique/mainline.git
