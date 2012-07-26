@@ -16,3 +16,162 @@
 [submodule "Tukui_ClassTimer"]
 	path = Tukui_ClassTimer
 	url = https://github.com/Toresh/Tukui_ClassTimer.git
+[submodule "DataStore_Crafts"]
+	path = DataStore_Crafts
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Crafts
+[submodule "TradeSkillMaster_Gathering"]
+	path = TradeSkillMaster_Gathering
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Gathering
+[submodule "TradeSkillMaster_Auctioning"]
+	path = TradeSkillMaster_Auctioning
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Auctioning
+[submodule "DataStore_Pets"]
+	path = DataStore_Pets
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Pets
+[submodule "DataStore_Auctions"]
+	path = DataStore_Auctions
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Auctions
+[submodule "TradeSkillMaster_Mailing"]
+	path = TradeSkillMaster_Mailing
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Mailing
+[submodule "TradeSkillMaster_Warehousing"]
+	path = TradeSkillMaster_Warehousing
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Warehousing
+[submodule "TradeSkillMaster"]
+	path = TradeSkillMaster
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster
+[submodule "DataStore_Characters"]
+	path = DataStore_Characters
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Characters
+[submodule "LibStub"]
+	path = LibStub
+	url = /home/zpowers/workspace/wow-upstream/LibStub
+[submodule "ReforgeLite"]
+	path = ReforgeLite
+	url = /home/zpowers/workspace/wow-upstream/ReforgeLite
+[submodule "DataStore_Reputations"]
+	path = DataStore_Reputations
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Reputations
+[submodule "DataStore_Quests"]
+	path = DataStore_Quests
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Quests
+[submodule "DataStore_Containers"]
+	path = DataStore_Containers
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Containers
+[submodule "AutoLog"]
+	path = AutoLog
+	url = /home/zpowers/workspace/wow-upstream/AutoLog
+[submodule "DataStore_Agenda"]
+	path = DataStore_Agenda
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Agenda
+[submodule "TradeSkillMaster_Shopping"]
+	path = TradeSkillMaster_Shopping
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Shopping
+[submodule "LibDDI-1.0"]
+	path = LibDDI-1.0
+	url = /home/zpowers/workspace/wow-upstream/LibDDI-1.0
+[submodule "LibAuctionScan"]
+	path = LibAuctionScan
+	url = /home/zpowers/workspace/wow-upstream/LibAuctionScan
+[submodule "lib-st"]
+	path = lib-st
+	url = /home/zpowers/workspace/wow-upstream/lib-st
+[submodule "DataStore_Talents"]
+	path = DataStore_Talents
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Talents
+[submodule "DataStore_Spells"]
+	path = DataStore_Spells
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Spells
+[submodule "LibDBIcon-1.0"]
+	path = LibDBIcon-1.0
+	url = /home/zpowers/workspace/wow-upstream/LibDBIcon-1.0
+[submodule "AceGUI-3.0-SharedMediaWidgets"]
+	path = AceGUI-3.0-SharedMediaWidgets
+	url = /home/zpowers/workspace/wow-upstream/AceGUI-3.0-SharedMediaWidgets
+[submodule "TradeSkillMaster_Destroying"]
+	path = TradeSkillMaster_Destroying
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Destroying
+[submodule "TradeSkillMaster_AuctionDB"]
+	path = TradeSkillMaster_AuctionDB
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_AuctionDB
+[submodule "LibBabble-Inventory-3.0"]
+	path = LibBabble-Inventory-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibBabble-Inventory-3.0
+[submodule "LibSharedMedia-3.0"]
+	path = LibSharedMedia-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibSharedMedia-3.0
+[submodule "LibQTip-1.0"]
+	path = LibQTip-1.0
+	url = /home/zpowers/workspace/wow-upstream/LibQTip-1.0
+[submodule "TradeSkillMaster_Crafting"]
+	path = TradeSkillMaster_Crafting
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Crafting
+[submodule "DataStore_Inventory"]
+	path = DataStore_Inventory
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Inventory
+[submodule "WeakAuras"]
+	path = WeakAuras
+	url = /home/zpowers/workspace/wow-upstream/WeakAuras
+[submodule "LibSink-2.0"]
+	path = LibSink-2.0
+	url = /home/zpowers/workspace/wow-upstream/LibSink-2.0
+[submodule "Altoholic"]
+	path = Altoholic
+	url = /home/zpowers/workspace/wow-upstream/Altoholic
+[submodule "DataStore"]
+	path = DataStore
+	url = /home/zpowers/workspace/wow-upstream/DataStore
+[submodule "LibCandyBar-3.0"]
+	path = LibCandyBar-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibCandyBar-3.0
+[submodule "DataStore_Stats"]
+	path = DataStore_Stats
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Stats
+[submodule "DataStore_Mails"]
+	path = DataStore_Mails
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Mails
+[submodule "LibCompress"]
+	path = LibCompress
+	url = /home/zpowers/workspace/wow-upstream/LibCompress
+[submodule "DataStore_Achievements"]
+	path = DataStore_Achievements
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Achievements
+[submodule "Skada"]
+	path = Skada
+	url = /home/zpowers/workspace/wow-upstream/Skada
+[submodule "LibBabble-Zone-3.0"]
+	path = LibBabble-Zone-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibBabble-Zone-3.0
+[submodule "TradeSkillMaster_ItemTracker"]
+	path = TradeSkillMaster_ItemTracker
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_ItemTracker
+[submodule "DataStore_Currencies"]
+	path = DataStore_Currencies
+	url = /home/zpowers/workspace/wow-upstream/DataStore_Currencies
+[submodule "LibBabble-Artifacts-3.0"]
+	path = LibBabble-Artifacts-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibBabble-Artifacts-3.0
+[submodule "BigWigs"]
+	path = BigWigs
+	url = /home/zpowers/workspace/wow-upstream/BigWigs
+[submodule "LibWindow-1.1"]
+	path = LibWindow-1.1
+	url = /home/zpowers/workspace/wow-upstream/LibWindow-1.1
+[submodule "LibPeriodicTable-3.1"]
+	path = LibPeriodicTable-3.1
+	url = /home/zpowers/workspace/wow-upstream/LibPeriodicTable-3.1
+[submodule "LibBabble-Boss-3.0"]
+	path = LibBabble-Boss-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibBabble-Boss-3.0
+[submodule "Ace3"]
+	path = Ace3
+	url = /home/zpowers/workspace/wow-upstream/Ace3
+[submodule "LibBabble-DigSites-3.0"]
+	path = LibBabble-DigSites-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibBabble-DigSites-3.0
+[submodule "TradeSkillMaster_Accounting"]
+	path = TradeSkillMaster_Accounting
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_Accounting
+[submodule "LibBabble-Faction-3.0"]
+	path = LibBabble-Faction-3.0
+	url = /home/zpowers/workspace/wow-upstream/LibBabble-Faction-3.0
