@@ -175,3 +175,6 @@
 [submodule "LibBabble-Faction-3.0"]
 	path = LibBabble-Faction-3.0
 	url = /home/zpowers/workspace/wow-upstream/LibBabble-Faction-3.0
+[submodule "LibBossIDs-1.0"]
+	path = LibBossIDs-1.0
+	url = /home/zpowers/workspace/wow-upstream/LibBossIDs-1.0/

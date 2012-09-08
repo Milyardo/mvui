@@ -55,3 +55,4 @@ git svn clone svn://svn.curseforge.net/wow/tradeskillmaster_shopping/mainline/tr
 git svn clone svn://svn.curseforge.net/wow/tradeskill-master/mainline/trunk TradeSkillMaster
 git svn clone svn://svn.curseforge.net/wow/tradeskillmaster_warehousing/mainline/trunk TradeSkillMaster_Warehousing
 git svn clone svn://svn.wowace.com/wow/big-wigs/mainline/trunk BigWigs
+git svn clone svn://svn.wowace.com/wow/libbossids-1-0/mainline/trunk LibBossIDs-1.0
