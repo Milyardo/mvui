@@ -1,4 +1,4 @@
-local T, C, L = unpack(select(2, ...))
+local T, C, L, G = unpack(select(2, ...))
 
 --------------------------------------------------------------------
  -- Call To Arms -- Elv22
@@ -12,43 +12,49 @@ if C["datatext"].calltoarms and C["datatext"].calltoarms > 0 then
 	Stat.Option = C.datatext.calltoarms
 	Stat.Color1 = T.RGBToHex(unpack(C.media.datatextcolor1))
 	Stat.Color2 = T.RGBToHex(unpack(C.media.datatextcolor2))
+	G.DataText.CallToArm = Stat
 
 	local Text  = Stat:CreateFontString("TukuiStatCallToArmsText", "OVERLAY")
 	Text:SetFont(C["media"].font, C["datatext"].fontsize)
 	Text:SetShadowOffset(T.mult, -T.mult)
 	Text:SetShadowColor(0, 0, 0, 0.4)
-	T.PP(C["datatext"].calltoarms, Text)
+	T.DataTextPosition(C["datatext"].calltoarms, Text)
 	Stat:SetParent(Text:GetParent())
+	G.DataText.CallToArm.Text = Text
 	
 	local TANK_STRING = TANK
 	local HEALER_STRING = HEALER
 	local DPS_STING = DAMAGE
+	local result = " %s %s %s"
 	
 	local function MakeString(tank, healer, damage, letter)
-		local str = ""
+		local strtank = ""
+		local strheal = ""
+		local strdps = ""
+		
 		if tank then
 			if letter then
-				str = " T"
+				strtank = "T"
 			else
-				str = TANK_STRING
+				strtank = TANK_STRING
 			end
 		end
 		if healer then
 			if letter then
-				str = " H"
+				strheal = "H"
 			else
-				str = HEALER_STRING
+				strheal = HEALER_STRING
 			end
 		end
 		if damage then
 			if letter then
-				str = " D"
+				strdps = "D"
 			else
-				str = DPS_STRING
+				strdps = DPS_STRING
 			end
 		end	
 		
-		return str
+		return string.format(result, strtank, strheal, strdps)
 	end
 
 	local function OnEvent(self, event, ...)
@@ -105,7 +111,7 @@ if C["datatext"].calltoarms and C["datatext"].calltoarms > 0 then
 			if not unavailable then
 				allUnavailable = false
 				local rolesString = MakeString(tankReward, healerReward, dpsReward)
-				if rolesString ~= ""  then 
+				if rolesString ~= "   "  then 
 					GameTooltip:AddDoubleLine(name..":", rolesString, 1, 1, 1)
 				end
 				if tankReward or healerReward or dpsReward then numCTA = numCTA + 1 end
@@ -121,7 +127,7 @@ if C["datatext"].calltoarms and C["datatext"].calltoarms > 0 then
 	end
     
 	Stat:RegisterEvent("LFG_UPDATE_RANDOM_INFO")
-	Stat:RegisterEvent("PLAYER_LOGIN")
+	Stat:RegisterEvent("PLAYER_ENTERING_WORLD")
 	Stat:SetScript("OnEvent", OnEvent)
 	Stat:SetScript("OnMouseDown", function() ToggleFrame(LFDParentFrame) end)
 	Stat:SetScript("OnEnter", OnEnter)

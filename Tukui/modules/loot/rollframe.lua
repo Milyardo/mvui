@@ -1,4 +1,4 @@
-local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
+local T, C, L, G = unpack(select(2, ...)) 
 --[[
 		this is an edited version of teksloot
 		all credits of this mod goes to tekhub
@@ -16,10 +16,8 @@ local function ClickRoll(frame)
 	RollOnLoot(frame.parent.rollid, frame.rolltype)
 end
 
-
 local function HideTip() GameTooltip:Hide() end
 local function HideTip2() GameTooltip:Hide(); ResetCursor() end
-
 
 local rolltypes = {"need", "greed", "disenchant", [0] = "pass"}
 local function SetTip(frame)
@@ -30,7 +28,6 @@ local function SetTip(frame)
 	GameTooltip:Show()
 end
 
-
 local function SetItemTip(frame)
 	if not frame.link then return end
 	GameTooltip:SetOwner(frame, "ANCHOR_TOPLEFT")
@@ -39,18 +36,15 @@ local function SetItemTip(frame)
 	if IsModifiedClick("DRESSUP") then ShowInspectCursor() else ResetCursor() end
 end
 
-
 local function ItemOnUpdate(self)
 	if IsShiftKeyDown() then GameTooltip_ShowCompareItem() end
 	CursorOnUpdate(self)
 end
 
-
 local function LootClick(frame)
 	if IsControlKeyDown() then DressUpItemLink(frame.link)
 	elseif IsShiftKeyDown() then ChatEdit_InsertLink(frame.link) end
 end
-
 
 local cancelled_rolls = {}
 local function OnEvent(frame, event, rollid)
@@ -62,14 +56,12 @@ local function OnEvent(frame, event, rollid)
 	frame:Hide()
 end
 
-
 local function StatusUpdate(frame)
 	local t = GetLootRollTimeLeft(frame.parent.rollid)
 	local perc = t / frame.parent.time
 	frame.spark:Point("CENTER", frame, "LEFT", perc * frame:GetWidth(), 0)
 	frame:SetValue(t)
 end
-
 
 local function CreateRollButton(parent, ntex, ptex, htex, rolltype, tiptext, ...)
 	local f = CreateFrame("Button", nil, parent)
@@ -91,7 +83,6 @@ local function CreateRollButton(parent, ntex, ptex, htex, rolltype, tiptext, ...
 	txt:SetPoint("CENTER", 0, rolltype == 2 and 1 or rolltype == 0 and -1.2 or 0)
 	return f, txt
 end
-
 
 local function CreateRollFrame()
 	local frame = CreateFrame("Frame", nil, UIParent)
@@ -185,7 +176,6 @@ local function CreateRollFrame()
 	return frame
 end
 
-
 local anchor = CreateFrame("Button", "TukuiRollAnchor", UIParent)
 anchor:Width(300) 
 anchor:Height(22)
@@ -200,6 +190,7 @@ anchor:EnableMouse(false)
 anchor:SetTemplate("Default")
 anchor:SetAlpha(0)
 anchor:SetBackdropBorderColor(1, 0, 0, 1)
+G.Loot.RollAnchor = anchor
 
 local frames = {}
 
@@ -218,7 +209,6 @@ local function GetFrame()
 	return f
 end
 
-
 local function START_LOOT_ROLL(rollid, time)
 	if cancelled_rolls[rollid] then return end
 
@@ -226,10 +216,10 @@ local function START_LOOT_ROLL(rollid, time)
 	f.rollid = rollid
 	f.time = time
 	for i in pairs(f.rolls) do f.rolls[i] = nil end
-	f.need:SetText(0)
-	f.greed:SetText(0)
-	f.pass:SetText(0)
-	f.disenchant:SetText(0)
+	f.need:SetText("")
+	f.greed:SetText("")
+	f.pass:SetText("")
+	f.disenchant:SetText("")
 
 	local texture, name, count, quality, bop, canNeed, canGreed, canDisenchant = GetLootRollItemInfo(rollid)
 	f.button:SetNormalTexture(texture)
@@ -260,7 +250,6 @@ local function START_LOOT_ROLL(rollid, time)
 	f:SetPoint("CENTER", WorldFrame, "CENTER")
 	f:Show()
 end
-
 
 local locale = GetLocale()
 local rollpairs = locale == "deDE" and {
@@ -307,6 +296,7 @@ local rollpairs = locale == "deDE" and {
 	["(.*) has selected Need for: (.+)"]  = "need",
 	["(.*) has selected Disenchant for: (.+)"]  = "disenchant",
 }
+
 local function ParseRollChoice(msg)
 	for i,v in pairs(rollpairs) do
 		local _, _, playername, itemname = string.find(msg, i)
@@ -319,30 +309,16 @@ local function ParseRollChoice(msg)
 	end
 end
 
-local function CHAT_MSG_LOOT(msg)
-	local playername, itemname, rolltype = ParseRollChoice(msg)
-	if playername and itemname and rolltype then
-		for _,f in ipairs(frames) do
-			if f.rollid and f.button.link == itemname and not f.rolls[playername] then
-				f.rolls[playername] = rolltype
-				f[rolltype]:SetText(tonumber(f[rolltype]:GetText()) + 1)
-				return
-			end
-		end
-	end
-end
-
 anchor:RegisterEvent("ADDON_LOADED")
 anchor:SetScript("OnEvent", function(frame, event, addon)
 	if addon ~= "Tukui" then return end
 
 	anchor:UnregisterEvent("ADDON_LOADED")
 	anchor:RegisterEvent("START_LOOT_ROLL")
-	anchor:RegisterEvent("CHAT_MSG_LOOT")
 	UIParent:UnregisterEvent("START_LOOT_ROLL")
 	UIParent:UnregisterEvent("CANCEL_LOOT_ROLL")
 
-	anchor:SetScript("OnEvent", function(frame, event, ...) if event == "CHAT_MSG_LOOT" then return CHAT_MSG_LOOT(...) else return START_LOOT_ROLL(...) end end)
+	anchor:SetScript("OnEvent", function(frame, event, ...) return START_LOOT_ROLL(...) end)
 
 	anchor:Point("BOTTOM", UIParent, "BOTTOM", 0, 350)
 end)

@@ -1,7 +1,7 @@
 --------------------------------------------------------------------
 -- TIME
 --------------------------------------------------------------------
-local T, C, L = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
+local T, C, L, G = unpack(select(2, ...))
 
 if not C["datatext"].wowtime or C["datatext"].wowtime == 0 then return end
 
@@ -12,21 +12,26 @@ Stat:SetFrameLevel(3)
 Stat.Option = C.datatext.wowtime
 Stat.Color1 = T.RGBToHex(unpack(C.media.datatextcolor1))
 Stat.Color2 = T.RGBToHex(unpack(C.media.datatextcolor2))
+G.DataText.Time = Stat
 
 local Text = Stat:CreateFontString("TukuiStatTimeText", "OVERLAY")
 Text:SetFont(C.media.font, C["datatext"].fontsize)
-T.PP(C["datatext"].wowtime, Text)
+T.DataTextPosition(C["datatext"].wowtime, Text)
+G.DataText.Time.Text = Text
 
 local europeDisplayFormat = string.join("", Stat.Color2.."%02d", ":%02d|r")
 local ukDisplayFormat = string.join("", "", Stat.Color2.."%d", ":%02d", " %s|r")
 local timerLongFormat = "%d:%02d:%02d"
 local timerShortFormat = "%d:%02d"
-local lockoutInfoFormat = "%s |cffaaaaaa(%s%s, %s/%s)"
+local lockoutInfoFormat = "%s%s |cffaaaaaa(%s, %s/%s)"
+local lockoutInfoFormatNoEnc = "%s%s |cffaaaaaa(%s)"
 local formatBattleGroundInfo = "%s: "
+local heroicDifficulty = {DUNGEON_DIFFICULTY2, DUNGEON_DIFFICULTY_5PLAYER_HEROIC, RAID_DIFFICULTY3, RAID_DIFFICULTY4, RAID_DIFFICULTY_10PLAYER_HEROIC, RAID_DIFFICULTY_25PLAYER_HEROIC}
 local lockoutColorExtended, lockoutColorNormal = { r=0.3,g=1,b=0.3 }, { r=1,g=1,b=1 }
-local difficultyInfo = { "N", "N", "H", "H" }
 local curHr, curMin, curAmPm
 local APM = { TIMEMANAGER_PM, TIMEMANAGER_AM }
+local startTimer = GetTime()
+local played = 0
 
 local function CalculateTimeValues(tt)
 	if tt == nil then tt = false end
@@ -135,7 +140,7 @@ Stat:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(panel, anchor, xoff, yoff)
 	GameTooltip:ClearLines()
 
-	local localizedName, isActive, canQueue, startTime, canEnter
+	local _, localizedName, isActive, canQueue, startTime, canEnter
 	for i = 1, GetNumWorldPVPAreas() do
 		_, localizedName, isActive, canQueue, startTime, canEnter = GetWorldPVPAreaInfo(i)
 		if canEnter then
@@ -170,10 +175,17 @@ Stat:SetScript("OnEnter", function(self)
 		GameTooltip:AddDoubleLine(timeText, string.format(ukDisplayFormat, Hr, Min, APM[AmPm]))
 	end
 	
+	local actualtime = GetTime()
+	played = actualtime - startTimer
+	if played > 60 then
+		GameTooltip:AddDoubleLine(TIME_PLAYED_MSG..": ", T.FormatTime(played))
+	end
+	
 	local oneraid, lockoutColor
 	for i = 1, GetNumSavedInstances() do
-		local name, _, reset, difficulty, locked, extended, _, isRaid, maxPlayers, _, numEncounters, encounterProgress  = GetSavedInstanceInfo(i)
-		if isRaid and (locked or extended) then
+		local name, _, reset, _, locked, extended, _, isRaid, maxPlayers, difficulty, numEncounters, encounterProgress  = GetSavedInstanceInfo(i)
+		local idiff = "N"
+		if isRaid and (locked or extended) and name then
 			local tr,tg,tb,diff
 			if not oneraid then
 				GameTooltip:AddLine(" ")
@@ -181,7 +193,18 @@ Stat:SetScript("OnEnter", function(self)
 				oneraid = true
 			end
 			if extended then lockoutColor = lockoutColorExtended else lockoutColor = lockoutColorNormal end
-			GameTooltip:AddDoubleLine(format(lockoutInfoFormat, name, maxPlayers, difficultyInfo[difficulty],encounterProgress,numEncounters), formatResetTime(reset), 1,1,1, lockoutColor.r,lockoutColor.g,lockoutColor.b)
+			for i, value in pairs(heroicDifficulty) do
+				if value == difficulty then
+					idiff = "H"
+					break
+				end
+			end
+			local formatTime = formatResetTime(reset)
+			if (numEncounters and numEncounters > 0) and (encounterProgress and encounterProgress > 0) then
+				GameTooltip:AddDoubleLine(format(lockoutInfoFormat, maxPlayers, idiff, name, encounterProgress, numEncounters), formatTime, 1,1,1, lockoutColor.r,lockoutColor.g,lockoutColor.b)
+			else
+				GameTooltip:AddDoubleLine(format(lockoutInfoFormatNoEnc, maxPlayers, idiff, name), formatTime, 1,1,1, lockoutColor.r,lockoutColor.g,lockoutColor.b)
+			end
 		end
 	end
 	GameTooltip:Show()

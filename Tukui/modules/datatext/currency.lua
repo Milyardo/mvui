@@ -1,4 +1,4 @@
-local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
+local T, C, L, G = unpack(select(2, ...)) 
 --------------------------------------------------------------------
  -- CURRENCY
 --------------------------------------------------------------------
@@ -11,13 +11,15 @@ if C["datatext"].currency and C["datatext"].currency > 0 then
 	Stat.Option = C.datatext.currency
 	Stat.Color1 = T.RGBToHex(unpack(C.media.datatextcolor1))
 	Stat.Color2 = T.RGBToHex(unpack(C.media.datatextcolor2))
+	G.DataText.Currency = Stat
 
 	local Text  = Stat:CreateFontString("TukuiStatCurrencyText", "OVERLAY")
 	Text:SetFont(C.media.font, C["datatext"].fontsize)
-	T.PP(C["datatext"].currency, Text)
+	T.DataTextPosition(C["datatext"].currency, Text)
+	G.DataText.Currency.Text = Text
 	
 	local function update()
-		local _text = Stat.Color2.."---".."|r"
+		local _text = Stat.Color2..CURRENCY.."|r"
 		for i = 1, MAX_WATCHED_TOKENS do
 			local name, count, _, _, _ = GetBackpackCurrencyInfo(i)
 			if name and count then

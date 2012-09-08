@@ -1,4 +1,4 @@
-local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
+local T, C, L, G = unpack(select(2, ...)) 
 
 -- all the frame we want to move
 -- all our frames that we want being movable.
@@ -6,11 +6,10 @@ T.AllowFrameMoving = {
 	TukuiMinimap,
 	TukuiTooltipAnchor,
 	TukuiAurasPlayerBuffs,
-	TukuiShiftBar,
+	TukuiStance,
 	TukuiRollAnchor,
 	TukuiAchievementHolder,
 	TukuiWatchFrameAnchor,
-	TukuiGMFrameAnchor,
 	TukuiVehicleAnchor,
 	TukuiExtraActionBarFrameHolder,
 }
@@ -36,14 +35,11 @@ local function exec(self, enable)
 	end
 	
 	if self == TukuiAurasPlayerBuffs then
-		if not self:GetBackdrop() then self:SetTemplate("Default") end
-		
 		local buffs = TukuiAurasPlayerBuffs
 		local debuffs = TukuiAurasPlayerDebuffs
 		
 		if enable then
-			buffs:SetBackdropColor(unpack(C.media.backdropcolor))
-			buffs:SetBackdropBorderColor(1,0,0,1)	
+			buffs.backdrop:SetAlpha(1)
 		else
 			local position = self:GetPoint()
 			if position:match("TOPLEFT") or position:match("BOTTOMLEFT") or position:match("BOTTOMRIGHT") or position:match("TOPRIGHT") then
@@ -64,8 +60,7 @@ local function exec(self, enable)
 				buffs:SetAttribute("wrapYOffset", -67.5)
 				debuffs:SetAttribute("wrapYOffset", -67.5)
 			end
-			buffs:SetBackdropColor(0,0,0,0)
-			buffs:SetBackdropBorderColor(0,0,0,0)
+			buffs.backdrop:SetAlpha(0)
 		end
 	end
 	
@@ -94,19 +89,17 @@ local function exec(self, enable)
 	
 	if self == TukuiWatchFrameAnchor or self == TukuiExtraActionBarFrameHolder then
 		if enable then
-			self:SetBackdropBorderColor(1,0,0,1)
-			self:SetBackdropColor(unpack(C.media.backdropcolor))		
+			self:SetAlpha(1)		
 		else
-			self:SetBackdropBorderColor(0,0,0,0)
-			self:SetBackdropColor(0,0,0,0)		
+			self:SetAlpha(0)		
 		end
 	end
 	
-	if self == TukuiShiftBar then
+	if self == TukuiStance then
 		if enable then
-			TukuiShapeShiftHolder:SetAlpha(1)
+			TukuiStanceHolder:SetAlpha(1)
 		else
-			TukuiShapeShiftHolder:SetAlpha(0)
+			TukuiStanceHolder:SetAlpha(0)
 		end
 	end
 end
