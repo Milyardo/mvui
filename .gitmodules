@@ -178,3 +178,6 @@
 [submodule "LibBossIDs-1.0"]
 	path = LibBossIDs-1.0
 	url = /home/zpowers/workspace/wow-upstream/LibBossIDs-1.0/
+[submodule "GoGoMount"]
+	path = GoGoMount
+	url = /home/zpowers/workspace/wow-upstream/GoGoMount/
