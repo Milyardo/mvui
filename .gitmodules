@@ -15,7 +15,7 @@
 	url = git://git.curseforge.net/wow/clique/mainline.git
 [submodule "Tukui_ClassTimer"]
 	path = Tukui_ClassTimer
-	url = https://github.com/Toresh/Tukui_ClassTimer.git
+	url = https://github.com/Milyardo/Tukui_ClassTimer
 [submodule "DataStore_Crafts"]
 	path = DataStore_Crafts
 	url = /home/zpowers/workspace/wow-upstream/DataStore_Crafts
@@ -190,3 +190,9 @@
 [submodule "Tukui_ElvUI_Skins"]
 	path = Tukui_ElvUI_Skins
 	url = https://github.com/Azilroka/Tukui_ElvUI_Skins.git
+[submodule "Tukui"]
+	path = Tukui
+	url = git://tukui.org/Tukui.git
+[submodule "Tukui-git"]
+	path = Tukui-git
+	url = git://tukui.org/Tukui.git
