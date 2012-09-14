@@ -187,3 +187,6 @@
 [submodule "ElvUI-git"]
 	path = ElvUI-git
 	url = git://tukui.org/ElvUI.git
+[submodule "Tukui_ElvUI_Skins"]
+	path = Tukui_ElvUI_Skins
+	url = https://github.com/Azilroka/Tukui_ElvUI_Skins.git
