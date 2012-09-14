@@ -181,3 +181,9 @@
 [submodule "GoGoMount"]
 	path = GoGoMount
 	url = /home/zpowers/workspace/wow-upstream/GoGoMount/
+[submodule "ElvUI"]
+	path = ElvUI
+	url = git://tukui.org/ElvUI.git
+[submodule "ElvUI-git"]
+	path = ElvUI-git
+	url = git://tukui.org/ElvUI.git
