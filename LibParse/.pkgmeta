@@ -1,0 +1,9 @@
+package-as: LibAuctionScan-1.0
+license-output: LICENSE.txt
+enable-nolib-creation: no
+manual-changelog:
+    filename: ChangeLog.txt
+    markup-type: creole
+externals:
+	Libs: svn://svn.wowace.com/wow/libstub/mainline/trunk
+	tags: latest
