@@ -70,9 +70,6 @@
 [submodule "LibDDI-1.0"]
 	path = LibDDI-1.0
 	url = /home/zpowers/workspace/wow-upstream/LibDDI-1.0
-[submodule "LibAuctionScan"]
-	path = LibAuctionScan
-	url = /home/zpowers/workspace/wow-upstream/LibAuctionScan
 [submodule "lib-st"]
 	path = lib-st
 	url = /home/zpowers/workspace/wow-upstream/lib-st
@@ -196,3 +193,9 @@
 [submodule "Tukui-git"]
 	path = Tukui-git
 	url = git://tukui.org/Tukui.git
+[submodule "LibParse"]
+	path = LibParse
+	url = /home/zpowers/workspace/wow-upstream/LibParse/
+[submodule "LibAuctionScan-1.0"]
+	path = LibAuctionScan-1.0
+	url = /home/zpowers/workspace/wow-upstream/LibAuctionScan-1.0/

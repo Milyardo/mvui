@@ -26,7 +26,7 @@ git svn clone svn://svn.curseforge.net/wow/datastore/mainline/trunk DataStore
 git svn clone svn://svn.curseforge.net/wow/datastore_talents/mainline/trunk DataStore_Talents
 git svn clone svn://svn.wowace.com/wow/ace-gui-3-0-shared-media-widgets/mainline/trunk AceGUI-3.0-SharedMediaWidgets
 git svn clone svn://svn.wowace.com/wow/ace3/mainline/trunk Ace3
-git svn clone svn://svn.wowace.com/wow/libauctionscan/mainline/trunk LibAuctionScan
+git svn clone svn://svn.wowace.com/wow/libauctionscan-1-0/mainline/trunk LibAuctionScan
 git svn clone svn://svn.wowace.com/wow/libbabble-artifacts-3-0/mainline/trunk LibBabble-Artifacts-3.0
 git svn clone svn://svn.wowace.com/wow/libbabble-boss-3-0/mainline/trunk LibBabble-Boss-3.0
 git svn clone svn://svn.wowace.com/wow/libbabble-digsites-3-0/mainline/trunk LibBabble-DigSites-3.0
