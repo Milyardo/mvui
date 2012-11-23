@@ -1,0 +1,11 @@
+## Interface: 50001
+## Title: |cffC495DDTukui|r Skins
+## Version: 1.10
+## Author: Azilroka, Sortokk, and others see Credits.txt
+## OptionalDeps: Tukui_ChatTweaks
+## RequiredDeps: Tukui
+## SavedVariables: UISkinOptions, CBEnableSpecialBars, CBBar2and3Width, CBBar2and3Position, CBShowButtonPosition, TPEnableSpecialBars, TPBar2and3Width, TPBar2and3Position, TPShowButtonPosition
+
+init.lua
+core\load_core.xml
+skins\load_skins.xml

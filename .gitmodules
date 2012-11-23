@@ -199,3 +199,6 @@
 [submodule "LibAuctionScan-1.0"]
 	path = LibAuctionScan-1.0
 	url = /home/zpowers/workspace/wow-upstream/LibAuctionScan-1.0/
+[submodule "TradeSkillMaster_WoWuction"]
+	path = TradeSkillMaster_WoWuction
+	url = /home/zpowers/workspace/wow-upstream/TradeSkillMaster_WoWuction/
